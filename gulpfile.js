@@ -32,4 +32,4 @@ gulp.task('server', function(done) {
   gulp.watch(['src/*.mjml'], gulp.series('mjml')).on('change', browserSync.reload);
 });
 
-gulp.task('default', gulp.series('server'));
+gulp.task('default', gulp.series('mjml', 'assets', 'server'));
