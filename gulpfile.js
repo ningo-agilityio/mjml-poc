@@ -3,7 +3,8 @@ var gulp = require("gulp"),
     mjmlEngine = require('mjml'),
     livereload = require('gulp-livereload'),
     http = require('http'),
-    st = require('st');
+    st = require('st'),
+    browserSync = require('browser-sync').create();
 
 gulp.task("mjml", function() {
   return gulp
@@ -13,7 +14,8 @@ gulp.task("mjml", function() {
       validationLevel: 'strict'
     }))
     .pipe(gulp.dest("./html"))
-    .pipe(livereload());
+    .pipe(livereload())
+    .pipe(browserSync.stream());
 });
 gulp.task("assets", function() {
   return gulp
@@ -23,17 +25,11 @@ gulp.task("assets", function() {
 });
 
 gulp.task('server', function(done) {
-  http.createServer(
-    st({ 
-      path: __dirname + '/html', 
-      index: 'index.html', 
-      cache: false,
-    })
-  ).listen(8080, done);
+  browserSync.init({
+    server: "./html"
+  });
+  gulp.watch(['src/assets/**'], gulp.series('assets'))
+  gulp.watch(['src/*.mjml'], gulp.series('mjml')).on('change', browserSync.reload);
 });
 
-gulp.task('default', gulp.series('server', function() {
-  livereload.listen({ basePath: 'html' });
-  gulp.watch(['src/*.mjml'], gulp.series('mjml'))
-  gulp.watch(['src/assets/**'], gulp.series('assets'))
-}));
+gulp.task('default', gulp.series('server'));

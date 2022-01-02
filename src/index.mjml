@@ -1,11 +1,72 @@
 <mjml>
+  <mj-head>
+    <mj-title>MJML POC</mj-title>
+    <mj-attributes>
+      <mj-text padding="0" />
+      <mj-class name="blue" color="blue" />
+      <mj-class name="big" font-size="20px" />
+      <mj-all font-family="Arial" />
+      <mj-selector path=".custom div">
+        <mj-html-attribute name="data-id">42</mj-html-attribute>
+      </mj-selector>
+    </mj-attributes>
+    <mj-attributes>
+      <mj-class name="mjclass" color="green" font-size="30px" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .blue-text div {
+        color: blue !important;
+      }
+    </mj-style>
+    <mj-style>
+      .red-text div {
+        color: red !important;
+        text-decoration: underline !important;
+      }
+    </mj-style>
+     <mj-attributes>
+      <mj-accordion border="none" padding="1px" />
+      <mj-accordion-element icon-wrapped-url="https://i.imgur.com/Xvw0vjq.png" icon-unwrapped-url="https://i.imgur.com/KKHenWa.png" icon-height="24px" icon-width="24px" />
+      <mj-accordion-title font-family="Roboto, Open Sans, Helvetica, Arial, sans-serif" background-color="#fff" color="#031017" padding="15px" font-size="18px" />
+      <mj-accordion-text font-family="Open Sans, Helvetica, Arial, sans-serif" background-color="#fafafa" padding="15px" color="#505050" font-size="14px" />
+    </mj-attributes>
+  </mj-head>
   <mj-body>
-    <mj-section>
+    <!-- Company Header -->
+    <mj-section background-color="#f0f0f0">
       <mj-column>
-        <mj-image width="100px" src="/assets/logo.jpg"></mj-image>
-        <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text font-size="20px" color="#F45E43" font-family="helvetica">Hello World</mj-text>
+        <mj-text  
+          font-style="italic"
+          font-size="20px"
+          color="#626262"
+        >
+          My Company
+        </mj-text>
       </mj-column>
     </mj-section>
+
+    <!-- Image Header -->
+    <mj-include path="./components/banner.mjml" />
+
+    <!-- Introduction Text -->
+    <mj-include path="./components/introduction.mjml" />
+
+    <!-- 2 columns section -->
+    <mj-include path="./components/two-columns.mjml" />
+
+    <!-- Icons -->
+    <mj-include path="./components/list-icons.mjml" />
+
+    <!-- Social icons -->
+    <mj-include path="./components/social-icons.mjml" />
+    
+    <!-- Accordion -->
+    <mj-include path="./components/accordion.mjml" />
+  
+    <!-- Carousel -->
+    <mj-include path="./components/carousel.mjml" />
+
+    <!-- Card -->
+    <mj-include path="./components/card.mjml" />
   </mj-body>
 </mjml>

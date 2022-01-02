@@ -1,0 +1,7 @@
+<mj-section background-color="#f0f0f0">
+  <mj-column>
+    <mj-social>
+      <mj-social-element name="facebook">Share</mj-social-element>
+    </mj-social>
+  </mj-column>
+</mj-section>
