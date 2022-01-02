@@ -1,0 +1,13 @@
+{
+	"dependencies": {
+		"gulp": "^4.0.2",
+		"gulp-livereload": "^4.0.2",
+		"gulp-mjml": "^4.0.2",
+		"http": "^0.0.1-security",
+		"mjml": "^4.11.0",
+		"st": "^3.0.0"
+	},
+	"scripts": {
+		"build": "gulp"
+	}
+}
