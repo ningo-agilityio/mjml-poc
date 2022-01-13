@@ -25,4 +25,4 @@ pnpm install
 pnpm run build
 ```
 
-4. Browser will be automatically opened with port localhost:3000
+4. Browser will be automatically opened with port and access localhost:3000
